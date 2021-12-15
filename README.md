@@ -1,6 +1,6 @@
-# metal-site-prediction
+# MetalSiteHunter
 
-We offer an ensemble 3D deep convolution neural network to predict the metal binding sites. We consider protein structures to be three-dimensional images with voxels parameterized by atom biophysical properties. We exploit the strength of CNN architecture to detect spatially proximate features. These detectors of local biochemical interactions are then hierarchically composed into more intricate features capable of describing the complex and nonlinear phenomenon of molecular interaction. We finally used the features in an ensemble model to predict the metal-binding site. you can use google colab to repoduce the results or using this [web server](https://mohamad-lab.ai/metal-prediction/ "Metal Site Prediction") for testing. 
+We offer an ensemble 3D deep convolution neural network to predict the metal binding sites. We consider protein structures to be three-dimensional images with voxels parameterized by atom biophysical properties. We exploit the strength of CNN architecture to detect spatially proximate features. These detectors of local biochemical interactions are then hierarchically composed into more intricate features capable of describing the complex and nonlinear phenomenon of molecular interaction. We finally used the features in an ensemble model to predict the metal-binding site. you can use google colab to repoduce the results or using this [web server](https://mohamad-lab.ai/metalsitehunter/ "MetalSiteHunter") for testing. 
 
 ![metal-site-prediction-data-pipeline](https://github.com/ClinicalAI/metal-site-hunter/blob/main/metal_prediction_pipeline.png)
 ## Data
