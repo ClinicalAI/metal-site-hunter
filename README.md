@@ -12,4 +12,4 @@ This project used Google Colab for processing, you can use the note-books in _Co
 ## Pre-Trained Models
 Also there are set of pre-trained models that we used in our web server in the _Trained_models_ directory.
 ## Training Models
-The note-books under the _Codes_ directory can be tested and run. By default, this note-books train on our datasets in the _Data_ directory, while the ensemble model trains on our pre-trained models in the _Trained Models_ directory. However, if you want to use different models, you must first run _metal_site_prediction_base_models.ipynb_ and save the results to your Google Drive before using these pre-trained models in _metal_site_prediction_ensemble_model.ipynb_ for training on your selected model set.
+
