@@ -90,7 +90,7 @@ def train_preprocessing(volume, label):
     return volume, label
 
 
-def get_model_1(width=20, height=20, depth=20, channel=3):
+def get_model_1(width=20, height=20, depth=20, channel=5):
 
     inputs = layers.Input((width, height, depth, channel), name='model_1')
 
@@ -125,7 +125,7 @@ def get_model_1(width=20, height=20, depth=20, channel=3):
     return model
 
 
-def get_model_2(width=15, height=15, depth=15, channel=1):
+def get_model_2(width=20, height=20, depth=20, channel=5):
 
     inputs = layers.Input((width, height, depth, channel), name='model_2')
 
