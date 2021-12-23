@@ -20,12 +20,6 @@ We finally evaluate our models on the unseen test data:
 
 
 
-## Pre-Trained Models
-The pre-trained model of the final ensemble model can be found here:
-
-[xx](https://github.com/ClinicalAI/metal-site-hunter/blob/main/xx.py)
-
-
 ## Web-server:
 
 We built a [web-server](https://mohamad-lab.ai/metalsitehunter/) based on our models. You can try our model there!
