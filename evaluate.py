@@ -59,7 +59,7 @@ except Exception as e:
 
 def load_data_eval():
 
-  data = np.load("data/eval_data.npz")
+  data = np.load("data/unseen_data.npz")
   x = data["X"]
   y = data["Y"]
   y = np.reshape(y,(-1,1))
@@ -99,7 +99,7 @@ def get_model_1(width=20, height=20, depth=20, channel=3):
     x = layers.Dropout(0.3)(x)
     x = layers.BatchNormalization()(x)
 
-    outputs = layers.Dense(6, activation='softmax')(x)
+    outputs = layers.Dense(7, activation='softmax')(x)
 
     model = models.Model(inputs, outputs, name="metal_site_model_1")
     return model
@@ -130,7 +130,7 @@ def get_model_2(width=15, height=15, depth=15, channel=1):
     x = layers.Dropout(0.4)(x)
     x = layers.BatchNormalization()(x)
 
-    outputs = layers.Dense(6, activation='softmax')(x)
+    outputs = layers.Dense(7, activation='softmax')(x)
 
     model = models.Model(inputs, outputs, name="metal_site_model_2")
     return model
@@ -151,7 +151,7 @@ def ensemble (models_list):
 
     x= layers.Dropout(0.3)(x)
 
-    output = layers.Dense(units=6, activation="softmax")(x)
+    output = layers.Dense(units=7, activation="softmax")(x)
 
     model = models.Model(inputs=inputs, outputs=output, name='ensemble')
 

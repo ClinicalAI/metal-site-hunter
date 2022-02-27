@@ -78,6 +78,7 @@ def rotate(volume):
         volume = ndimage.rotate(volume,
                                 angle=random.choice(angles),
                                 axes=random.choice(axes),
+                                mode = 'nearest',
                                 reshape=False)
         return volume
 
@@ -119,7 +120,7 @@ def get_model_1(width=20, height=20, depth=20, channel=5):
     x = layers.Dropout(0.3)(x)
     x = layers.BatchNormalization()(x)
 
-    outputs = layers.Dense(6, activation='softmax')(x)
+    outputs = layers.Dense(7, activation='softmax')(x)
 
     model = models.Model(inputs, outputs, name="metal_site_model_1")
     return model
@@ -150,7 +151,7 @@ def get_model_2(width=20, height=20, depth=20, channel=5):
     x = layers.Dropout(0.4)(x)
     x = layers.BatchNormalization()(x)
 
-    outputs = layers.Dense(6, activation='softmax')(x)
+    outputs = layers.Dense(7, activation='softmax')(x)
 
     model = models.Model(inputs, outputs, name="metal_site_model_2")
     return model

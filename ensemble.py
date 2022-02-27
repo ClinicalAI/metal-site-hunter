@@ -75,6 +75,7 @@ def rotate(volume):
         volume = ndimage.rotate(volume,
                                 angle=random.choice(angles),
                                 axes=random.choice(axes),
+                                mode = 'nearest',
                                 reshape=False)
         return volume
 
@@ -124,7 +125,7 @@ def get_model_1(width=20, height=20, depth=20, channel=5):
     x = layers.Dropout(0.3)(x)
     x = layers.BatchNormalization()(x)
 
-    outputs = layers.Dense(6, activation='softmax')(x)
+    outputs = layers.Dense(7, activation='softmax')(x)
 
     model = models.Model(inputs, outputs, name="metal_site_model_1")
     return model
@@ -155,7 +156,7 @@ def get_model_2(width=20, height=20, depth=20, channel=5):
     x = layers.Dropout(0.4)(x)
     x = layers.BatchNormalization()(x)
 
-    outputs = layers.Dense(6, activation='softmax')(x)
+    outputs = layers.Dense(7, activation='softmax')(x)
 
     model = models.Model(inputs, outputs, name="metal_site_model_2")
     return model
@@ -176,7 +177,7 @@ def ensemble (models_list):
 
     x= layers.Dropout(0.3)(x)
 
-    output = layers.Dense(units=6, activation="softmax")(x)
+    output = layers.Dense(units=7, activation="softmax")(x)
 
     model = models.Model(inputs=inputs, outputs=output, name='ensemble')
 
@@ -192,6 +193,7 @@ def train_ensemble_cf(channel,epoch,_batch,rotation=False, prefix=''):
   i = 1
 
   con_mat_avg = []
+  predictions = []
 
   _epoch = epoch
 
@@ -276,13 +278,6 @@ def train_ensemble_cf(channel,epoch,_batch,rotation=False, prefix=''):
     print('\n')
     print('\n')
 
-    class_weight = {0: 1/0.69,
-                1: 1/0.86,
-                2: 1/0.7,
-                3: 1/0.82,
-                4: 1/0.9,
-                5:1/0.95
-                }
 
     history = model.fit(
     train_dataset,
@@ -294,7 +289,6 @@ def train_ensemble_cf(channel,epoch,_batch,rotation=False, prefix=''):
                checkpoint,
                log
                ],
-    class_weight = class_weight
     )
 
     model.load_weights(save_dir+ prefix + 'ensemble_epoch_{}_{}.h5'.format(_epoch,i))
